@@ -17,7 +17,7 @@ namespace FinalSolution
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.ConnectionStrings[""]
+            //ConfigurationManager.ConnectionStrings[""]
         }
     }
 }
