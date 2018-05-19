@@ -47,7 +47,8 @@ namespace FinalSolution
             finally
             {
                 //Response.Write("Rows:" + dt.Rows.Count);
-                Response.Write("Rows:" + rows);
+                //Response.Write("Rows:" + rows);
+                Response.Redirect("HtmlPage1.html");
             }
                 
         }
