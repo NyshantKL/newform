@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="FinalSolution.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FinalSolution.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
             <asp:Label ID="Label2" runat="server" Text="Last Name"></asp:Label>
             <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="Button1" runat="server" Text="Submit" />
+            <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
         </div>
     </form>
 </body>
