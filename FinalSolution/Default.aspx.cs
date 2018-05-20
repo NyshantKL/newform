@@ -23,22 +23,53 @@ namespace FinalSolution
             int rows = 0;
             try
             {
-               if(txtFName.Text.Trim()!=string.Empty && txtLName.Text.Trim() != string.Empty)
-                
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ftbl"].ConnectionString))
+                SqlConnection con=null;
+                if (txtFName.Text.Trim() != string.Empty && txtLName.Text.Trim() != string.Empty)
                 {
+                    con = new SqlConnection(ConfigurationManager.ConnectionStrings["ftblCentral"].ConnectionString);
+                    try
+                    {
+                        con.Open();
+                    }
+                    catch(Exception ex)
+                    {
+                        con = new SqlConnection(ConfigurationManager.ConnectionStrings["ftblSouth"].ConnectionString);
+                        con.Open();
+                    }
+                    
                     using (SqlCommand comm = new SqlCommand())
                     {
                         comm.Connection = con;
-                        con.Open();
+                       // con.Open();
                         comm.CommandText = "INSERT INTO formtable values(@fname,@lname);";
                         comm.Parameters.AddWithValue("@fname", txtFName.Text);
                         comm.Parameters.AddWithValue("@lname", txtLName.Text);
-                          rows=comm.ExecuteNonQuery();
+                        rows = comm.ExecuteNonQuery();
                         //dt.Load(comm.ExecuteReader());
-
                     }
+                    con.Close();
                 }
+                #region Commenting Working code
+                //using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ftblCentral"].ConnectionString))
+                //{
+                //    using (SqlCommand comm = new SqlCommand())
+                //    {
+                //        comm.Connection = con;
+                //        con.Open();
+                //        comm.CommandText = "INSERT INTO formtable values(@fname,@lname);";
+                //        comm.Parameters.AddWithValue("@fname", txtFName.Text);
+                //        comm.Parameters.AddWithValue("@lname", txtLName.Text);
+                //          rows=comm.ExecuteNonQuery();
+                //        //dt.Load(comm.ExecuteReader());
+
+                //    }
+                //} 
+                #endregion
+
+
+
+
+
             }
             catch (Exception ex)
             {

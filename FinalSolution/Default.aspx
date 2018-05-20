@@ -16,6 +16,11 @@
             <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" Text="view all" />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>
